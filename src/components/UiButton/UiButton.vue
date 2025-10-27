@@ -24,18 +24,40 @@ const props = withDefaults(defineProps<IProps>(), {
   gap: 8px;
   align-items: center;
   justify-content: center;
-  height: 40px;
-  padding: 16px 32px;
+  height: 44px;
+  padding: 0 24px;
   font-size: 1rem;
-  line-height: 1.5;
-  color: var(--color-white);
-  background: var(--color-primary);
-  border-radius: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #2563eb; /* яркий синий */
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
 
   &[data-layout='secondary'] {
-    color: var(--color-primary);
-    background-color: var(--color-transparent);
-    border-color: var(--color-primary);
+    color: #2563eb;
+    background-color: transparent;
+    border-color: #2563eb;
+
+    &:hover:not(:disabled) {
+      background-color: rgba(37, 99, 235, 0.05);
+    }
   }
 }
 </style>
